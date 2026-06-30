@@ -1,0 +1,26 @@
+{
+  "name": "oss-developer-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gas-sponsored smart wallet and capital streaming tools for open-source developers on Stellar/Soroban",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspace=apps/web",
+    "build:contract": "cargo build --manifest-path packages/soroban-auth/Cargo.toml --target wasm32-unknown-unknown --release",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
